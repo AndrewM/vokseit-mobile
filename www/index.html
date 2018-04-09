@@ -40,6 +40,24 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World</title>
+	
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: "https://teachthemdiligently.net/connector/attendify/21",
+                crossDomain: true,
+                cache: false,
+                success: function(result) {
+                    var result = $.parseJSON(result);
+                    $.each(result, function(i, field) {
+                        $("#output").append("name: " + field.name + " icon: " + field.icon + " type:" + field.type + "<br/>");
+                    });
+                }
+            });
+        });
+    </script>
+	
 </head>
 
 <body>
@@ -49,6 +67,9 @@
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
         </div>
+		
+		<div id="output"></div>
+		
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
