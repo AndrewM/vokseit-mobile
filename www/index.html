@@ -56,6 +56,15 @@
                 }
             });
         });
+		
+		function showAlert() {
+			navigator.notification.alert(
+				'You are the winner!',  // message
+				alertDismissed,         // callback
+				'Game Over',            // title
+				'Done'                  // buttonName
+			);
+		}
     </script>
 	
 </head>
@@ -69,6 +78,8 @@
         </div>-->
 		
 		<div id="output"></div>
+		
+		<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 		
     </div>
     <script type="text/javascript" src="cordova.js"></script>
